@@ -1,0 +1,41 @@
+.venv/
+__pycache__/
+*.pyc
+
+.env
+
+data/raw/*
+data/processed/*
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+venv/
+.venv/
+env/
+
+# Airflow logs
+airflow/logs/
+
+# Data
+data/raw/
+data/silver/
+data/gold/
+
+# Secrets
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# Docker
+*.log
+
+# PostgreSQL volumes
+pg_data/

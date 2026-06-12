@@ -1,0 +1,20 @@
+name: bond_analytics
+version: '1.0.0'
+config-version: 2
+
+profile: bond_analytics
+
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+models:
+  bond_analytics:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +schema: gold
+      +materialized: table

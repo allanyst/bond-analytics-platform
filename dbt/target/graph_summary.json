@@ -1,0 +1,1 @@
+{"_invocation_id": "bbb86501-b1b9-457f-a197-abd567fed78d", "linked": {"0": {"name": "source.bond_analytics.bronze.fred_observations", "type": "source", "succ": [1]}, "1": {"name": "model.bond_analytics.stg_fred_observations", "type": "model"}}}
