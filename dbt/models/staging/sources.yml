@@ -5,3 +5,4 @@ sources:
     schema: bronze
     tables:
       - name: fred_observations
+      - name: rating_history

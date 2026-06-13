@@ -40,12 +40,15 @@ services:
     depends_on:
       - postgres
     command: webserver
+    group_add:
+      - "1001"
     volumes:
         - ./airflow/dags:/opt/airflow/dags
         - ./airflow/logs:/opt/airflow/logs
         - ./airflow/plugins:/opt/airflow/plugins
         - ./dbt:/opt/dbt
         - ./src:/opt/airflow/src
+        - /var/run/docker.sock:/var/run/docker.sock
 
   airflow-scheduler:
     image: apache/airflow:2.8.1
@@ -58,12 +61,15 @@ services:
     depends_on:
       - postgres
     command: scheduler
+    group_add:
+      - "1001"
     volumes:
         - ./airflow/dags:/opt/airflow/dags
         - ./airflow/logs:/opt/airflow/logs
         - ./airflow/plugins:/opt/airflow/plugins
         - ./dbt:/opt/dbt
         - ./src:/opt/airflow/src
+        - /var/run/docker.sock:/var/run/docker.sock
 
   dbt:
     image: python:3.11-slim

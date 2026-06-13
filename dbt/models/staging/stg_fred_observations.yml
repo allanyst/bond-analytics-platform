@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_fred_observations
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+      - name: series_id
+        data_tests:
+          - not_null
+      - name: observation_date
+        data_tests:
+          - not_null
+      - name: spread_value
+        data_tests:
+          - not_null
