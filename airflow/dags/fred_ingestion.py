@@ -80,6 +80,11 @@ with DAG(
         bash_command="docker exec bond-analytics-platform-dbt-1 dbt run --profiles-dir /opt/dbt",
     )
 
+    dbt_snapshot_task = BashOperator(
+        task_id="dbt_snapshot",
+        bash_command="docker exec bond-analytics-platform-dbt-1 dbt snapshot --profiles-dir /opt/dbt",
+    )
+
     dbt_test_task = BashOperator(
         task_id="dbt_test",
         bash_command="docker exec bond-analytics-platform-dbt-1 dbt test --profiles-dir /opt/dbt",
@@ -90,4 +95,4 @@ with DAG(
         python_callable=check_fallen_angels,
     )
 
-    extract_task >> load_task >> dbt_run_task >> dbt_test_task >> check_task
+    extract_task >> load_task >> dbt_run_task >> dbt_snapshot_task >> dbt_test_task >> check_task
