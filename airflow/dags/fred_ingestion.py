@@ -11,7 +11,10 @@ from datetime import datetime
 from ingestion.fred_client import fetch_series
 from ingestion.loaders import load_to_bronze
 
-SERIES_ID = "BAMLH0A0HYM2"
+SERIES_ID = SERIES_IDS = [
+    "BAMLH0A0HYM2",  # HY spread
+    "GS10",          # 10-year Treasury yield
+]
 
 def extract(**context):
     observations = fetch_series(SERIES_ID)
